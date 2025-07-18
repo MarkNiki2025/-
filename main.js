@@ -122,17 +122,5 @@ window.onload = () => {
   resetAutoChange();
 };
 
-function initMap() {
-  const location = { lat: 50.4501, lng: 30.5234 }; // Київ
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
-    center: location,
-  });
 
-  const marker = new google.maps.Marker({
-    position: location,
-    map: map,
-  });
-}
 
-window.initMap = initMap;
