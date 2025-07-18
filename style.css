@@ -713,12 +713,12 @@ html {
   .burger .line {
   width: 35px;
   height: 5px;
-  background-color: black;
+  background-color: white;
   border-radius: 4px;
   transition: 0.3s;
   margin: 8%;
   position: relative;
-      left: 500%;
+      left: 550%;
   top: 1.8vh;
 
 }
