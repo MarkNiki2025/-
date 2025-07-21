@@ -38,7 +38,7 @@
         <article class="headline" id="main">
             <section class="alltextintheheadline">      
                 <h1 >Сила дієвої<br> поради</h1>
-                <p class="headlinetext">Це абзац. Натисніть, щоб<span class="break-word"> додати й <span class="break-wordpc"> змінити контент.</span></span></p>
+                <p class="headlinetext">Це абзац. Натисніть, щоб<span class="break-word"> додати й <span class="break-wordpc"> змінити контент.</p>
                 <a class="url" href="">Докладніше</a>
             </section>
             <section class="headlinewithotwords"></section>
@@ -60,7 +60,7 @@
                 </svg>
                 <div class="textneartheimg">
                 <h3 class="titleneartheimg">Бізнес-плани</h3>
-                <p class="textundertitle">Це абзац. Натисніть, щоб додати й <br> змінити контент.</p>
+                <p class="textundertitle">Це абзац. Натисніть, щоб додати й <span> змінити контент.</span></p>
                 </div>
             </section>
             </div>
@@ -75,7 +75,7 @@
                 </svg>
                 <div class="textneartheimg">
                 <h3 class="titleneartheimg">Бухгалтерські послуги</h3>
-                <p class="textundertitle">Це абзац. Натисніть, щоб додати й <br> змінити контент.</p>
+                <p class="textundertitle">Це абзац. Натисніть, щоб додати й<span>  змінити контент.</span></p>
                 </div>
             </section>  
             </div>
@@ -91,16 +91,15 @@
                 </svg>
                 <div class="textneartheimg">
                 <h3 class="titleneartheimg"> Фінансова оптимізація</h3>
-                <p class="textundertitle">Це абзац. Натисніть, щоб додати й <br> змінити контент.</p>
+                <p class="textundertitle">Це абзац. Натисніть, щоб додати й <span> змінити контент.</span></p>
                 </div>
             </section>
             </div>
         </article>
         </div>
-       <article class="numbers">
+<article class="numbers">
   <h2 class="titlenumber">Ми добре розуміємось на числах</h2>
   <div class="inline-list">
-    
     <div class="item">
       <div class="number1">15</div>
       <div class="label1">Років досвіду</div>
@@ -135,26 +134,26 @@
 
   </div>
 </article>
-        <article class="aboutus" id="aboutus">
+         <article class="aboutus" id="aboutus">
                   <section class="left">
                     <div class="lefttext">
                 <p class="aboutustext"> ПРО НАС </p>
                 <h2 class="aboutustitle">Наші експерти – <br>найкращі</h2>
                 <p class="firstlefttext">
-                    Це абзац. Натисніть, щоб додати та змінити<br> контент. Просто натисніть «Редагувати текст»
-                    або<br>  клацніть двічі, щоб додати текст і налаштувати<br>  шрифт. Ви можете перетягти абзац у
-                    будь-яке<br> місце на сторінці. Тут ви можете написати історію <br>та розказати про себе.
+                    Це абзац. Натисніть, щоб додати та змінити<span> контент. Просто натисніть «Редагувати текст»
+                    або</span><span>  клацніть двічі, щоб додати текст і налаштувати</span><span>  шрифт. Ви можете перетягти абзац у
+                    будь-яке</span><span> місце на сторінці. Тут ви можете написати історію</span><span>та розказати про себе.</span> 
                 </p>
                 <p class="secondlefttext">
-                    Це чудове місце, щоб написати довгий текст про <br> власну компанію та послуги. Скористайтеся
-                    цим <br> простором, щоб детальніше представити свою <br> компанію. Розкажіть про команду та послуги,
-                    які ви  <br>надаєте. Діліться з відвідувачами історією <br> започаткування вашого бізнесу та перевагами 
-                    над <br>конкурентами. Рекламуйте компанію та заявіть про <br>себе.
+                    Це чудове місце, щоб написати довгий текст про<span>  власну компанію та послуги. Скористайтеся
+                    цим</span><span> простором, щоб детальніше представити свою</span><span> компанію. Розкажіть про команду та послуги,
+                    які ви</span><span>>  надаєте. Діліться з відвідувачами історією </span><span>започаткування вашого бізнесу та перевагами 
+                    над</span> <span> конкурентами. Рекламуйте компанію та заявіть про</span>  себе.
                 </p>
                 </div>
             </section>
-                <section class="right">  
-                 </section>
+                <section class="right"><div style="height: 300px;"></div>  </section>
+                 
         </article>
         <article class="coments" id="coments">
                     <p class="coment">ВІДГУКИ</p>
@@ -282,22 +281,12 @@
   }
 </script>
 
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-  async
-  defer>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6VN_Hh-JzU5IU0QXIeOrpEA6FUyeAm0g&callback=initMap">
 </script>
     
             </footer>
             <script>
-  function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    const burger = document.getElementById('burger');
-
-    menu.classList.toggle('active');
-    burger.classList.toggle('open'); 
-  }
-
   function toggleMenu() {
   const burger = document.getElementById("burger");
   const navMenu = document.getElementById("nav-menu");
