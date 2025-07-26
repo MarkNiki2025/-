@@ -122,5 +122,52 @@ window.onload = () => {
   resetAutoChange();
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  function activateMenu() {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", activateMenu);
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById("burger");
+  const navMenu = document.getElementById("nav-menu");
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle("open");
+    navMenu.classList.toggle("active");
+  });
+
+  // Закриваємо меню при кліку на пункт меню
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove("open");
+      navMenu.classList.remove("active");
+    });
+  });
+});
+
+
 
 
