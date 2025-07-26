@@ -45,7 +45,7 @@
 
 
 .header {
-      background-color: rgba(248, 240, 255, 0.9);
+      background-color: rgba();
       position: fixed;
       width: 100%;
       z-index: 1000;
