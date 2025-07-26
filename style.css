@@ -61,12 +61,14 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      background-color:black
     }
     .logo {
       font-size: 1.6rem;
       font-weight: bold;
       color: black;
       text-decoration: none;
+      background-color:black
     }
     .buttom {
       font-size: 1.2rem;
