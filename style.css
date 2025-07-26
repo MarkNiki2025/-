@@ -45,7 +45,7 @@
 
 
 .header {
-      background-color: rgba();
+      background-color: rgba(248, 240, 255, 0.9);
       position: fixed;
       width: 100%;
       z-index: 1000;
@@ -61,14 +61,12 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      background-color:black
     }
     .logo {
       font-size: 1.6rem;
       font-weight: bold;
       color: black;
       text-decoration: none;
-      background-color:black
     }
     .buttom {
       font-size: 1.2rem;
@@ -90,7 +88,7 @@
       margin-left: 18%;
       margin-right: 18%;
       position: relative;
-      left: %;
+      left: 1.5%;
     }
     .centernav a {
       color: black;
