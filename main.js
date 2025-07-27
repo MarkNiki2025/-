@@ -18,12 +18,13 @@ window.addEventListener('scroll', () => {
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".alltextintheheadline");
   setTimeout(() => {
-    section.classList.add("show");
+    if(section) section.classList.add("show");
   }, 500); 
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".center");
+  if(!section) return;
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -32,17 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(section); 
       }
     });
-  }, {
-    threshold: 0.3 
-  });
+  }, { threshold: 0.3 });
 
-  if (section) {
-    observer.observe(section);
-  }
+  observer.observe(section);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".numbers");
+  if(!section) return;
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -51,17 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(section); 
       }
     });
-  }, {
-    threshold: 0.3 
-  });
+  }, { threshold: 0.3 });
 
-  if (section) {
-    observer.observe(section);
-  }
+  observer.observe(section);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".left");
+  if(!section) return;
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -70,14 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(section); 
       }
     });
-  }, {
-    threshold: 0.3 
-  });
+  }, { threshold: 0.3 });
 
-  if (section) {
-    observer.observe(section);
-  }
+  observer.observe(section);
 });
+
+// ==== Імена та свайпи ====
 
 const names = ["Петро Коваль", "Оксана Бузина", "Лариса Горбач"];
 let currentIndex = 0;
@@ -96,8 +89,16 @@ function updateDots(index) {
   });
 }
 
+function resetAutoChange() {
+  clearTimeout(timeout);
+  timeout = setTimeout(autoChange, 6000);
+}
+
 function updateName(index) {
-  document.getElementById("personName").textContent = names[index];
+  const personNameEl = document.getElementById("personName");
+  if(personNameEl) {
+    personNameEl.textContent = names[index];
+  }
   currentIndex = index;
   updateDots(index);
   resetAutoChange();
@@ -112,15 +113,65 @@ function autoChange() {
   updateName(currentIndex);
 }
 
-function resetAutoChange() {
-  clearTimeout(timeout);
-  timeout = setTimeout(autoChange, 6000); 
-}
-
 window.onload = () => {
   updateName(0);
   resetAutoChange();
+
+  if(window.innerWidth <= 768) {
+    // --- Свайпи для телефонів ---
+    const comentsBlock = document.getElementById('coments');
+    const excludeElement = document.querySelector('.coment'); // "ВІДГУКИ"
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (comentsBlock) {
+      comentsBlock.addEventListener('touchstart', function(e) {
+        if (e.target === excludeElement || excludeElement.contains(e.target)) {
+          return;
+        }
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+
+      comentsBlock.addEventListener('touchend', function(e) {
+        if (e.target === excludeElement || excludeElement.contains(e.target)) {
+          return;
+        }
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, {passive: true});
+    
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // свайп вліво
+        currentIndex = (currentIndex + 1) % names.length;
+        changeName(currentIndex);
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // свайп вправо
+        currentIndex = (currentIndex - 1 + names.length) % names.length;
+        changeName(currentIndex);
+      }
+    }
+
+    // Автоматичний свайп вліво кожні 6 секунд
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % names.length;
+      changeName(currentIndex);
+    }, 6000);
+  }
+  } else {
+    // --- Автоматична зміна для ПК ---
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % names.length;
+      changeName(currentIndex);
+    }, 6000);
+  }
 };
+
+// Навігація і активні пункти меню
 
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("[id]");
@@ -149,25 +200,23 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", activateMenu);
 });
 
+// Бургер меню
 
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById("burger");
   const navMenu = document.getElementById("nav-menu");
 
-  burger.addEventListener('click', () => {
-    burger.classList.toggle("open");
-    navMenu.classList.toggle("active");
-  });
-
-  // Закриваємо меню при кліку на пункт меню
-  document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      burger.classList.remove("open");
-      navMenu.classList.remove("active");
+  if(burger && navMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle("open");
+      navMenu.classList.toggle("active");
     });
-  });
+
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove("open");
+        navMenu.classList.remove("active");
+      });
+    });
+  }
 });
-
-
-
-
