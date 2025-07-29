@@ -220,3 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector('.header');
+  console.log("Header width: ", header.offsetWidth, "px");
+  console.log("Window width: ", window.innerWidth, "px");
+});
+
+
